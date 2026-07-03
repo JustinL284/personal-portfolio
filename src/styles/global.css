@@ -1,0 +1,61 @@
+/* ===== ALL FONT DECLARATIONS ===== */
+
+/* Clash Display - Medium */ 
+@font-face {
+    font-family: 'Clash Display';
+    src: url('/fonts/ClashDisplay-Variable.ttf') format('ttf');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Supreme - Regular */ 
+@font-face {
+    font-family: 'Supreme-Variable';
+    src: url('/fonts/Supreme-Variable.ttf') format('ttf');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Supreme - Bold */ 
+@font-face {
+    font-family: 'Supreme-Variable';
+    src: url('/fonts/Supreme-Variable.ttf') format('ttf');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Supreme - RegularItalic */ 
+@font-face {
+    font-family: 'Supreme-VariableItalic';
+    src: url('/fonts/Supreme-VariableItalic.ttf') format('ttf');
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+
+/* Supreme - BoldItalic */ 
+@font-face {
+    font-family: 'Supreme-VariableItalic';
+    src: url('/fonts/Supreme-VariableItalic.ttf') format('ttf');
+    font-weight: 700;
+    font-style: italic;
+    font-display: swap;
+}
+
+/* ===== DESIGN TOKENS ===== */
+:root {
+  --font-heading: 'ClashDisplay-Variable', sans-serif;
+  --font-body: 'Supreme-Variable', sans-serif;
+}
+
+/* ===== GLOBAL STYLES ===== */
+body {
+    font-family: var(--font-body);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+}

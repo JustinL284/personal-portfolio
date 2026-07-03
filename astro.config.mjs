@@ -1,8 +1,44 @@
 // @ts-check
-import { defineConfig } from 'astro/config';
+import { defineConfig, fontProviders } from 'astro/config';
 
 // https://astro.build/config
 export default defineConfig({
     site: 'https://JustinL284.github.io',
     base: '/personal-portfolio',
+    fonts: [{
+        provider: fontProviders.local(),
+        name: "ClashDisplay-Variable",
+        cssVariable: "--font-clash-display",
+        options: {
+        variants: [{
+            src: ['./src/fonts/ClashDisplay-Variable.ttf'],
+            weight: "100 900",
+            style: 'normal'
+        }]
+        }
+    },
+    {
+        provider: fontProviders.local(),
+        name: "Supreme-Variable",
+        cssVariable: "--font-supreme",
+        options: {
+        variants: [{
+            src: ['./src/fonts/Supreme-Variable.ttf'],
+            weight: "100 900",
+            style: 'normal'
+        }]
+        }
+    },
+    {
+        provider: fontProviders.local(),
+        name: "Supreme-VariableItalic",
+        cssVariable: "--font-supreme-Italic",
+        options: {
+        variants: [{
+            src: ['./src/fonts/Supreme-VariableItalic.ttf'],
+            weight: "100 900",
+            style: 'italic'
+        }]
+        }
+    }]
 });
