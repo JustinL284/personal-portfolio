@@ -1,0 +1,65 @@
+---
+interface Props {
+  variant?: 'primary' | 'secondary' | 'ghost';
+  size?: 'sm' | 'md' | 'lg';
+  href?: string;
+  disabled?: boolean;
+}
+
+const {
+  variant = 'primary',
+  size = 'md',
+  href,
+  disabled = false,
+} = Astro.props;
+
+const Tag = href ? 'a' : 'button';
+---
+
+<Tag
+  class:list={['btn', `btn-${variant}`, `btn-${size}`]}
+  href={href}
+  disabled={disabled}
+>
+  <slot />
+</Tag>
+
+<style>
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.15s ease;
+  }
+
+  .btn-primary {
+    background-color: #3b82f6;
+    color: white;
+  }
+  .btn-primary:hover {
+    background-color: #2563eb;
+  }
+
+  .btn-secondary {
+    background-color: #e5e7eb;
+    color: #111827;
+  }
+
+  .btn-ghost {
+    background-color: transparent;
+    color: #3b82f6;
+  }
+
+  .btn-sm { padding: 6px 12px; font-size: 0.875rem; }
+  .btn-md { padding: 10px 18px; font-size: 1rem; }
+  .btn-lg { padding: 14px 24px; font-size: 1.125rem; }
+
+  .btn[disabled] {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+</style>
