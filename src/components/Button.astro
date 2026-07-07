@@ -1,4 +1,6 @@
 ---
+/* Styles from global.css are imported in the root layout, so we don't need to import them here. */
+
 interface Props {
   variant?: 'primary' | 'secondary' | 'ghost';
   size?: 'sm' | 'md' | 'lg';
@@ -26,28 +28,39 @@ const Tag = href ? 'a' : 'button';
 
 <style>
   .btn {
+    font-family: var(--font-heading);
+
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    border-radius: 6px;
-    font-weight: 600;
-    cursor: pointer;
+
+    border-radius: 100px;
     border: none;
+    text-decoration: none;
+
+    cursor: pointer;
+
     transition: background-color 0.15s ease;
   }
 
   .btn-primary {
-    background-color: #3b82f6;
-    color: white;
+    background-color: var(--button-primary);
+    color: var(--text-invert);
   }
   .btn-primary:hover {
-    background-color: #2563eb;
+    /* hover will actually show an animation or smth */
+    background-color: var(--button-secondary);
+    color: var(--text-primary);
   }
 
   .btn-secondary {
-    background-color: #e5e7eb;
-    color: #111827;
+
   }
+
+  .btn-secondary:hover {
+
+  }
+
 
   .btn-ghost {
     background-color: transparent;
