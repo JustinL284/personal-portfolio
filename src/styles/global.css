@@ -51,12 +51,12 @@
     /* Font Configurations */
     --font-heading: 'ClashDisplay-Variable', sans-serif;
     --font-body: 'Supreme-Variable', sans-serif;
-    --fs-h1: 64px;
-    --fs-h2: 48px;
-    --fs-h3: 32px;
-    --fs-h4: 24px;
-    --fs-h5: 16px;
-    --fs-h6: 14px;
+    --fs-h1: 4rem; /* 64px */
+    --fs-h2: 3rem; /* 48px */
+    --fs-h3: 2rem; /* 32px */
+    --fs-h4: 1.5rem; /* 24px */
+    --fs-h5: 1rem; /* 16px */
+    --fs-h6: 0.875rem; /* 14px */
 
     /* Raw Color Configurations */
     --palette-deep-forest-green: #3F5541;
@@ -86,7 +86,9 @@
     --border-primary: var(--palette-greyscale-200);
 
     --button-primary: var(--palette-greyscale-900);
+    --button-primary-hover: var(--palette-greyscale-700);
     --button-secondary: var(--palette-greyscale-0);
+    --button-secondary-hover: var(--palette-greyscale-100);
     /* note: button colors still need to be defined, look into animations */
 }  
 

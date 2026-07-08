@@ -1,23 +1,82 @@
 ---
-import styles from '../styles/global.css';
+import Button from '../components/Button.astro';
 
+type NavItem = {
+  href: string;
+  label: string;
+  variant: 'primary' | 'secondary';
+};
 
-const navItems = [
-  { href: '/about', label: 'About' },
-  { href: '/contact', label: 'Work' },
-  { href: '/projects', label: 'Get in touch' },
+const navItems: NavItem[] = [
+  { href: '/work', label: 'Work', variant: 'secondary' },
+  { href: '/about', label: 'About', variant: 'secondary' },
+  { href: '/contact', label: 'Get in touch', variant: 'primary' },
 ]
 ---
 
-<nav class="nav-bar">
+<nav class="nav-bar-container">
     <ul class="nav-list">
-        <li>
-            <a href="/">JUSTIN LEE</a>
+        <li class="nav-item">
+            <a id="nav-logo" href="/">JUSTIN LEE</a>
         </li>
-        {navItems.map(item => (
-            <li class="nav-item">
-                <a class="nav-link" href={item.href}>{item.label}</a>
-            </li>
-        ))}
+        <div class="nav-item-spacer">
+            {navItems.map(item => (
+                <li class="nav-item-buttons">
+                    <Button variant={item.variant} size="md" href={item.href}>
+                        {item.label}
+                    </Button>
+                </li>
+            ))}
+        </div>
     </ul>
 </nav>
+
+<style>
+    .nav-bar-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+        position: sticky;
+        top: 0px;
+
+        width: 100%;
+    
+        background-color: var(--palette-greyscale-0);
+    }
+    
+    .nav-list {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    
+        width: 80%;
+        max-width: 1200px;
+        padding: 12px;
+        border-radius: 128px;
+    
+        list-style-type: none;
+
+        background-color: var(--palette-greyscale-0);
+    }
+    
+    .nav-item {
+        margin-right: 20px;
+    }
+    
+    #nav-logo {
+        font-family: var(--font-heading);
+        font-size: var(--fs-h4);
+        font-weight: bold;
+        text-decoration: none;
+        color: var(--text-primary);
+
+        padding-left: 1rem;
+    }
+    
+    .nav-item-spacer {
+        display: flex;
+        gap: 10px;
+    }
+
+</style>
