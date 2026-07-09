@@ -6,15 +6,24 @@
     <div id="hero-container">
         <h1 id="hero-name">JUSTIN LEE</h1>
         <div id="personal-attributes">
-            <p>Attribute 1</p>
-            <p>Attribute 2</p>
-            <p>Attribute 3</p>
-            <p>Attribute 4</p>
+            <p>Front-End UI/UX Developer</p>
+            <p>Chicago, IL</p>
+            <p>Purdue UX Alumni</p>
+            <p>LEGO Enthusiast</p>
         </div>
     </div>
 </main>
 
 <style>
+  #hero-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    height: 100vh;
+  }
+
   #hero-name {
     font-family: var(--font-heading);
     font-size: 8rem;
@@ -24,6 +33,7 @@
   #personal-attributes {
     display: flex;
     flex-direction: row;
-    gap: 1rem;
+    gap: 2rem;
+    font-family: var(--font-body);
   }
 </style>
