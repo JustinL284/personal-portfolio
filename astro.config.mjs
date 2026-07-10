@@ -1,5 +1,6 @@
 // @ts-check
 import { defineConfig, fontProviders } from 'astro/config';
+import tailwind from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
@@ -40,5 +41,8 @@ export default defineConfig({
             style: 'italic'
         }]
         }
-    }]
+    }],
+    vite: {
+        plugins: [tailwind()],
+    }
 });
