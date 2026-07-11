@@ -1,80 +1,122 @@
 ---
-/* Styles from global.css are imported in the root layout, so we don't need to import them here. */
+import { cva, type VariantProps } from "class-variance-authority";
+import { twMerge } from "tailwind-merge";
+import clsx from "clsx";
 
-interface Props {
-  variant?: 'primary' | 'secondary' | 'ghost';
-  size?: 'sm' | 'md' | 'lg';
+// --- Variant definitions ---
+const button = cva(
+  [
+    "inline-flex items-center justify-center gap-2",
+    "font-medium rounded-lg",
+    "transition-colors duration-150",
+    "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2",
+    "disabled:opacity-50 disabled:pointer-events-none",
+  ],
+  {
+    variants: {
+      variant: {
+        primary:
+          "bg-indigo-600 text-white hover:bg-indigo-700 focus-visible:ring-indigo-500",
+        secondary:
+          "bg-slate-100 text-slate-900 hover:bg-slate-200 focus-visible:ring-slate-400",
+        outline:
+          "border border-slate-300 text-slate-900 bg-transparent hover:bg-slate-50 focus-visible:ring-slate-400",
+        ghost:
+          "bg-transparent text-slate-700 hover:bg-slate-100 focus-visible:ring-slate-400",
+        danger:
+          "bg-red-600 text-white hover:bg-red-700 focus-visible:ring-red-500",
+      },
+      size: {
+        sm: "text-sm px-3 py-1.5",
+        md: "text-sm px-4 py-2",
+        lg: "text-base px-5 py-2.5",
+      },
+      fullWidth: {
+        true: "w-full",
+        false: "",
+      },
+    },
+    defaultVariants: {
+      variant: "primary",
+      size: "md",
+      fullWidth: false,
+    },
+  }
+);
+
+export interface Props extends VariantProps<typeof button> {
   href?: string;
+  type?: "button" | "submit" | "reset";
   disabled?: boolean;
+  loading?: boolean;
+  class?: string;
+  ariaLabel?: string;
+  target?: string;
+  rel?: string;
 }
 
 const {
-  variant = 'primary',
-  size = 'md',
+  variant,
+  size,
+  fullWidth,
   href,
+  type = "button",
   disabled = false,
+  loading = false,
+  class: className,
+  ariaLabel,
+  target,
+  rel,
 } = Astro.props;
 
-const Tag = href ? 'a' : 'button';
+// Merge cva classes with any custom classes passed in, letting later ones win
+const classes = twMerge(clsx(button({ variant, size, fullWidth }), className));
+
+// If it's a link, disabling isn't a native HTML concept — fake it via aria + pointer-events
+const isLinkDisabled = href && disabled;
+const Tag = href ? "a" : "button";
 ---
 
 <Tag
-  class:list={['btn', `btn-${variant}`, `btn-${size}`]}
+  class={classes}
   href={href}
-  disabled={disabled}
+  type={!href ? type : undefined}
+  disabled={!href ? disabled || loading : undefined}
+  aria-disabled={isLinkDisabled ? "true" : undefined}
+  aria-label={ariaLabel}
+  aria-busy={loading ? "true" : undefined}
+  target={href ? target : undefined}
+  rel={target === "_blank" ? "noopener noreferrer" : rel}
+  tabindex={isLinkDisabled ? -1 : undefined}
+  class:list={[isLinkDisabled && "opacity-50 pointer-events-none cursor-not-allowed"]}
 >
+  {loading && (
+    <svg
+      class="animate-spin h-4 w-4"
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      aria-hidden="true"
+    >
+      <circle
+        class="opacity-25"
+        cx="12"
+        cy="12"
+        r="10"
+        stroke="currentColor"
+        stroke-width="4"
+      ></circle>
+      <path
+        class="opacity-75"
+        fill="currentColor"
+        d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
+      ></path>
+    </svg>
+  )}
+
+  {!loading && <slot name="icon-left" />}
+
   <slot />
+
+  {!loading && <slot name="icon-right" />}
 </Tag>
-
-<style>
-  .btn {
-    font-family: var(--font-heading);
-
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-
-    border-radius: 100px;
-    border: none;
-    text-decoration: none;
-
-    cursor: pointer;
-
-    transition: background-color 0.15s ease;
-  }
-
-  .btn-primary {
-    background-color: var(--palette-slate-950);
-    color: var(--text-invert);
-  }
-  .btn-primary:hover {
-    /* hover will actually show an animation or smth */
-    background-color: var(--button-primary-hover);
-    color: var(--text-invert);
-  }
-
-  .btn-secondary {
-    background-color: var(--button-secondary);
-    color: var(--text-primary);
-  }
-
-  .btn-secondary:hover {
-    background-color: var(--button-secondary-hover);
-    color: var(--text-primary); 
-  }
-
-
-  .btn-ghost {
-    background-color: transparent;
-    color: #3b82f6;
-  }
-
-  .btn-sm { padding: 6px 12px; font-size: var(--fs-h6); }
-  .btn-md { padding: 12px 24px; font-size: var(--fs-h4); }
-  .btn-lg { padding: 14px 24px; font-size: var(--fs-h4); }
-
-  .btn[disabled] {
-    opacity: 0.5;
-    cursor: not-allowed;
-  }
-</style>

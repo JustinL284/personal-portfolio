@@ -1,9 +1,39 @@
 ---
-import Styles from '../styles/global.css'
+import LandingLayout from '../layouts/Landing-Layout.astro'
 import Button from '../components/Button.astro'
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
+<style is:global>
+  @import "../styles/global.css";
+</style>
 
-<Button href="/about" variant="primary" size="md">About</Button>
+<LandingLayout>
+    <!-- Basic -->
+    <Button>Click me</Button>
+
+    <!-- Variant + size -->
+    <Button variant="outline" size="lg">Large Outline</Button>
+
+    <!-- Danger, full width -->
+    <Button variant="danger" fullWidth>Delete Account</Button>
+
+    <!-- As a link -->
+    <Button href="/pricing" variant="secondary">See Pricing</Button>
+
+    <!-- Loading state -->
+    <Button loading>Saving...</Button>
+
+    <!-- With icon slots -->
+    <Button variant="primary">
+    <svg slot="icon-left" class="h-4 w-4" ><!-- icon --></svg>
+    Add Item
+    </Button>
+
+    <!-- Disabled -->
+    <Button disabled>Unavailable</Button>
+
+    <!-- Custom class override -->
+    <Button class="rounded-full shadow-lg">Rounded Custom</Button>
+</LandingLayout>

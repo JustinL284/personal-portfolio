@@ -61,11 +61,15 @@
     --fs-h5: 1rem; /* 16px */
     --fs-h6: 0.875rem; /* 14px */
 
-    /* Raw Color Configurations */
     --palette-slate-50: oklch(98.4% 0.003 247.858);
     --palette-slate-950: oklch(12.9% 0.042 264.695);
     
 }  
+
+@theme {
+    --palette-slate-50: oklch(98.4% 0.003 247.858);
+    --palette-slate-950: oklch(12.9% 0.042 264.695);
+}
 
 /* ===== GLOBAL STYLES ===== */
 body {
