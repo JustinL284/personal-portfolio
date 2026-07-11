@@ -62,37 +62,9 @@
     --fs-h6: 0.875rem; /* 14px */
 
     /* Raw Color Configurations */
-    --palette-deep-forest-green: #3F5541;
-    --palette-deep-denim-blue: #2E4A6B;
-
-    --palette-greyscale-0: transparent;
-    --palette-greyscale-50: #FAFAFA;
-    --palette-greyscale-100: #EDEDED;
-    --palette-greyscale-200: #DCDCDC;
-    --palette-greyscale-300: #C2C2C2;
-    --palette-greyscale-400: #A3A3A3;
-    --palette-greyscale-500: #7A7A7A;
-    --palette-greyscale-600: #5C5C5C;
-    --palette-greyscale-700: #404040;
-    --palette-greyscale-800: #292929;
-    --palette-greyscale-900: #171717;
-
-    /* Color Tokens */
-    --text-primary: var(--palette-greyscale-900);
-    --text-secondary: var(--palette-greyscale-600);
-    --text-invert: var(--palette-greyscale-50);
-
-    --surface-primary: var(--palette-greyscale-50);
-    --surface-secondary: var(--palette-greyscale-100);
-    --surface-invert: var(--palette-greyscale-800);
-
-    --border-primary: var(--palette-greyscale-200);
-
-    --button-primary: var(--palette-greyscale-900);
-    --button-primary-hover: var(--palette-greyscale-700);
-    --button-secondary: var(--palette-greyscale-0);
-    --button-secondary-hover: var(--palette-greyscale-100);
-    /* note: button colors still need to be defined, look into animations */
+    --palette-slate-50: oklch(98.4% 0.003 247.858);
+    --palette-slate-950: oklch(12.9% 0.042 264.695);
+    
 }  
 
 /* ===== GLOBAL STYLES ===== */

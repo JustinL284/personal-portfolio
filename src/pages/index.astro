@@ -1,16 +1,9 @@
 ---
-import '../styles/global.css';
-import LandingLayout from '../layouts/Landing-Layout.astro';
-import NavigationBar from '../components/Navigation-Bar.astro';
-import LandingPage from '../components/Landing-Page.astro';
+import Styles from '../styles/global.css'
+import Button from '../components/Button.astro'
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
-<div style="background-color: #eaeaea; min-height: 100vh;">
-	<LandingLayout>
-		<NavigationBar />
-		<LandingPage />
-	</LandingLayout>
-</div>
 
+<Button href="/about" variant="primary" size="md">About</Button>
