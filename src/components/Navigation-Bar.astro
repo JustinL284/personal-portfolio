@@ -1,0 +1,37 @@
+---
+import Button from '../components/Button.astro'
+
+type NavItem = {
+  href: string;
+  label: string;
+  variant: 'primary' | 'secondary';
+};
+
+const navItems: NavItem[] = [
+  { href: '/work', label: 'Work', variant: 'secondary' },
+  { href: '/about', label: 'About', variant: 'secondary' },
+  { href: '/contact', label: 'Get in touch', variant: 'primary' },
+]
+---
+<!-- "nav" is the navigation bar wrapper, it controls the stickiness & position from top of screen-->
+<nav class="sticky w-full z-20 top-4 inset-s-0">
+
+    <!-- this "div" controls all content in navigation bar -->
+    <div class="bg-surface-primary flex justify-between items-center p-4 rounded-full max-w-8/10 mx-auto">
+        <li class="list-none">
+            <a class="font-heading text-3xl pl-4" href="/">JUSTIN LEE</a>
+        </li>   
+
+        <!-- this "navItems div" controls navigation bar buttons-->
+        <div class="flex items-center gap-2">
+            {navItems.map(item => (
+                    <li class="list-none">
+                        <Button variant={item.variant} size="md" href={item.href}>
+                            {item.label}
+                        </Button>
+                    </li>
+                ))}
+        </div>
+    </div>
+</nav>
+

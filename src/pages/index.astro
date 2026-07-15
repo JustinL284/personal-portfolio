@@ -1,39 +1,27 @@
 ---
 import LandingLayout from '../layouts/Landing-Layout.astro'
+import LandingPage from '../components/Landing-Page.astro'
+import NavigationBar from '../components/Navigation-Bar.astro'
 import Button from '../components/Button.astro'
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
-<style is:global>
-  @import "../styles/global.css";
-</style>
 
 <LandingLayout>
-    <!-- Basic -->
-    <Button>Click me</Button>
+    <LandingPage />
+    <NavigationBar />
 
-    <!-- Variant + size -->
-    <Button variant="outline" size="lg">Large Outline</Button>
+    <Button variant="primary">Primary Button</Button>
+    <br>
+    <Button variant="secondary">Secondary Button</Button>
+    <br>
+    <Button size="sm">Small</Button>
+    <Button size="md">Medium</Button>
+    <Button size="lg">Large</Button>
+    
 
-    <!-- Danger, full width -->
-    <Button variant="danger" fullWidth>Delete Account</Button>
-
-    <!-- As a link -->
-    <Button href="/pricing" variant="secondary">See Pricing</Button>
-
-    <!-- Loading state -->
-    <Button loading>Saving...</Button>
-
-    <!-- With icon slots -->
-    <Button variant="primary">
-    <svg slot="icon-left" class="h-4 w-4" ><!-- icon --></svg>
-    Add Item
-    </Button>
-
-    <!-- Disabled -->
-    <Button disabled>Unavailable</Button>
-
-    <!-- Custom class override -->
-    <Button class="rounded-full shadow-lg">Rounded Custom</Button>
+    <h2 class="text-primary">Primary Text</h2>
+    <h2 class="text-secondary">Secondary Text</h2>
+    <h2 class="text-inverted">Text Invert</h2>
 </LandingLayout>
