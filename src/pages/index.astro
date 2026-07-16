@@ -1,29 +1,11 @@
 ---
-import LandingLayout from '../layouts/Landing-Layout.astro'
-import LandingPage from '../components/Landing-Page.astro'
-import NavigationBar from '../components/Navigation-Bar.astro'
-import Button from '../components/Button.astro'
+import SiteLayout from '../layouts/Site-Layout.astro'
+import HomePage from '../components/Home-Page.astro'
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
-<LandingLayout>
-    <NavigationBar />
-    <LandingPage />
-    
-    
-    <Button variant="primary">Primary Button</Button>
-    <br>
-    <Button variant="secondary">Secondary Button</Button>
-    <br>
-    <Button size="sm">Small</Button>
-    <Button size="md">Medium</Button>
-    <Button size="lg">Large</Button>
-    
-
-    <h2 class="text-primary">Primary Text</h2>
-    <h2 class="text-secondary">Secondary Text</h2>
-    <h2 class="text-inverted">Text Invert</h2>
-    -->
-</LandingLayout>
+<SiteLayout title="Home Page" description="something here">
+    <HomePage />
+</SiteLayout>

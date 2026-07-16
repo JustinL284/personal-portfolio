@@ -1,5 +1,10 @@
 ---
 import '../styles/global.css'
+import NavigationBar from '../components/Navigation-Bar.astro'
+import Footer from '../components/Footer.astro'
+
+const { title, description } = Astro.props;
+
 ---
 
 <!DOCTYPE html>
@@ -10,8 +15,8 @@ import '../styles/global.css'
         <meta name="viewport" content="width=device-width" />
 
         <!-- OpenGraph Preview Meta Tags -->
-        <meta property="og:title" content="Justin Lee's Design Portfolio" />
-        <meta property="og:description" content="Same or similar to meta description" />
+        <meta property="og:title" content={ title } />
+        <meta property="og:description" content={ description } />
         <meta property="og:image" content="https://yourdomain.com/og-image.png" />
         <meta property="og:url" content="https://yourdomain.com/current-page" />
         <meta property="og:type" content="website" />
@@ -33,12 +38,16 @@ import '../styles/global.css'
         <meta name="generator" content={Astro.generator} />
 
         <!-- Page Title and Description -->
-        <title>Justin Lee's Design Portfolio</title>
-        <meta name="description" content="A concise 150-160 char summary of the page." />
+        <title>{ title }</title>
+        <meta name="description" content={ description } />
     </head>
+
     <body>
+        <NavigationBar />
         <slot /> <!-- Slot is a place for content to be inserted in the layout. -->
+        <Footer />
     </body>
+
 </html>
 
 <style>
