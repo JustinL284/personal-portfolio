@@ -2,15 +2,16 @@
 import Button from '../components/Button.astro'
 
 type NavItem = {
-  href: string;
-  label: string;
-  variant: 'primary' | 'secondary';
+    href: string;
+    label: string;
+    variant: 'primary' | 'secondary';
 };
 
 const navItems: NavItem[] = [
-  { href: '/work', label: 'Work', variant: 'secondary' },
-  { href: '/about', label: 'About', variant: 'secondary' },
-  { href: '/contact', label: 'Get in touch', variant: 'primary' },
+    { href: '/sandbox', label: 'Sandbox', variant: 'secondary' },
+    { href: '/work', label: 'Work', variant: 'secondary' },
+    { href: '/about', label: 'About', variant: 'secondary' },
+    { href: '/contact', label: 'Get in touch', variant: 'primary' },
 ]
 ---
 <!-- "nav" is the navigation bar wrapper, it controls the stickiness & position from top of screen-->
