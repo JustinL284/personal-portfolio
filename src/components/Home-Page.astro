@@ -1,10 +1,26 @@
 ---
 import Button from '../components/Button.astro'
+
+import DecryptedText from '../components/DecryptedText.jsx';
 ---
 <!-- HERO HEADER -->
-<main class="bg-blue-500 h-screen w-full flex items-center justify-center flex-col">
+<main class="bg-surface-primary h-screen w-full flex items-center justify-center flex-col">
     <div class="flex flex-col items-center gap-8 text-center ">
-        <h1 class="text-9xl">JUSTIN LEE</h1>
+        <h1 class="text-9xl">
+            <span class="sr-only">Justin Lee</span>
+            <DecryptedText
+            text="JUSTIN LEE"
+            speed={50}
+            maxIterations={10}
+            sequential
+            revealDirection="start"
+            animateOn="hover"
+            className="revealed-text"
+            encryptedClassName="scrambled-text"
+            client:load
+        />
+        </h1>
+        
         <div class="flex gap-8 list-none justify-center">
             <li>Front-End UI/UX Developer</li>
             <li>Chicago, IL</li>
@@ -14,7 +30,7 @@ import Button from '../components/Button.astro'
         <Button variant='primary' size='md' >View my work</Button>
     </div>
     <div class="absolute inset-x-0 bottom-0 px-8 py-6">
-        <p class="text-xl font-heading">Some text here</p>
+        <p class="text-xl font-heading text-text-secondary">Some text here</p>
     </div>
 </main>
 
