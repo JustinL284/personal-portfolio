@@ -1,7 +1,7 @@
 ---
 import Button from '../components/Button.astro'
-
 import DecryptedText from '../components/DecryptedText.jsx';
+import ContentContainer from '../components/Content-Container.astro'
 ---
 <!-- HERO HEADER -->
 <main class="bg-surface-primary h-screen w-full flex items-center justify-center flex-col">
@@ -35,9 +35,23 @@ import DecryptedText from '../components/DecryptedText.jsx';
 </main>
 
 <!-- PROJECT SHOWCASE -->
-<section class="p-12 w-full flex items-center justify-center">
-    <div class=" flex flex-col items-center justify-center">
+<ContentContainer title="project showcase">
+    <div class="flex flex-col items-center justify-center">
         <h1>SHOWCASE</h1>
         <p>This is a subtitle for Showcase.</p>
     </div>
+</ContentContainer>
+
 </section>
+
+<!-- ABOUT ME SNIPPET -->
+<ContentContainer title="about me">
+    <div class="flex flex-row">
+        <div>
+            <h1>JUSTIN LEE</h1>
+        </div>
+        <div>
+            <p>photo here</p>
+        </div>
+    </div>
+</ContentContainer>

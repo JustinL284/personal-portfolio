@@ -8,6 +8,7 @@ import react from '@astrojs/react';
 export default defineConfig({
   site: 'https://JustinL284.github.io',
   base: '/personal-portfolio',
+  server: { port: 6767, host: true},
 
   fonts: [{
       provider: fontProviders.local(),
