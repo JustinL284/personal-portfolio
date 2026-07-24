@@ -1,5 +1,6 @@
 ---
 import Button from '../components/Button.astro'
+import DecryptedText from '../components/DecryptedText';
 
 type NavItem = {
     href: string;
@@ -20,7 +21,20 @@ const navItems: NavItem[] = [
     <!-- this "div" controls all content in navigation bar -->
     <div class="bg-surface-primary flex justify-between items-center p-4 rounded-full max-w-8/10 mx-auto">
         <li class="list-none">
-            <a class="font-heading text-3xl pl-4" href="/">JUSTIN LEE</a>
+            <a class="font-heading text-3xl pl-4" href="/">
+                <span class="sr-only">Justin Lee</span>
+                    <DecryptedText
+                        text="JUSTIN LEE"
+                        speed={50}
+                        maxIterations={10}
+                        sequential
+                        revealDirection="start"
+                        animateOn="hover"
+                        className="revealed-text"
+                        encryptedClassName="scrambled-text"
+                        client:load
+                        />
+            </a>
         </li>   
 
         <!-- this "navItems div" controls navigation bar buttons-->

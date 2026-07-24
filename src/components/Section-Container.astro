@@ -1,0 +1,17 @@
+---
+interface Props {
+  title?: string;
+  bg?: 'primary' | 'secondary'
+}
+const { title, bg = 'primary' } = Astro.props;
+
+const bgClasses = {
+  primary: 'bg-surface-primary',
+  secondary: 'bg-surface-secondary',
+};
+
+---
+
+<section data-container={title} class={`py-8 w-full items-center justify-center ${bgClasses[bg]}`}>
+  <slot />
+</section>

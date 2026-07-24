@@ -74,7 +74,7 @@
 
     /* Text Colors */
     --color-text-primary: var(--color-gray-950);
-    --color-text-secondary: var(--color-gray-500);
+    --color-text-secondary: var(--color-gray-700);
     --color-text-inverted: var(--color-gray-50);
 
     /* Button Colors */
@@ -90,7 +90,7 @@
     --color-surface-inverted: var(--color-gray-800);
 
     /* Border Colors */
-    --color-border-primary: var(--color-gray-700);
+    --color-border-primary: var(--color-gray-400);
 
     /* Temporary Focus Color */
     --color-focus-primary: var(--color-purple-700)

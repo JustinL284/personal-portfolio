@@ -1,57 +1,89 @@
 ---
 import Button from '../components/Button.astro'
 import DecryptedText from '../components/DecryptedText.jsx';
+import SectionContainer from '../components/Section-Container.astro'
 import ContentContainer from '../components/Content-Container.astro'
+import ProjectCard from '../components/Project-Card.astro'
+import Dither from '../components/Dither';
 ---
+
 <!-- HERO HEADER -->
-<main class="bg-surface-primary h-screen w-full flex items-center justify-center flex-col">
-    <div class="flex flex-col items-center gap-8 text-center ">
-        <h1 class="text-9xl">
-            <span class="sr-only">Justin Lee</span>
-            <DecryptedText
-            text="JUSTIN LEE"
-            speed={50}
-            maxIterations={10}
-            sequential
-            revealDirection="start"
-            animateOn="hover"
-            className="revealed-text"
-            encryptedClassName="scrambled-text"
-            client:load
+<main class="bg-surface-primary relative h-screen w-full flex items-center justify-center flex-col overflow-hidden">
+    <!-- Background layer -->
+    <div class="absolute inset-0 z-0">
+        <Dither
+            client:only="react"
+            waveColor={[0.5,0.5,0.5]}
+            disableAnimation={false}
+            enableMouseInteraction
+            mouseRadius={0.3}
+            colorNum={5}
+            waveAmplitude={0.3}
+            waveFrequency={2.5}
+            waveSpeed={0.02}
         />
+    </div>
+
+    <!-- Foreground content -->
+    <div class="relative z-10 flex flex-col items-center gap-8 text-center">
+        <h1 class="text-9xl text-text-inverted">
+            JUSTIN LEE
         </h1>
-        
-        <div class="flex gap-8 list-none justify-center">
+
+        <div class="flex gap-8 list-none justify-center text-text-inverted">
             <li>Front-End UI/UX Developer</li>
             <li>Chicago, IL</li>
             <li>Purdue UX Alumni</li>
             <li>LEGO Enthusiast</li>
         </div>
-        <Button variant='primary' size='md' >View my work</Button>
+        <Button variant='primary' size='md'>View my work</Button>
     </div>
-    <div class="absolute inset-x-0 bottom-0 px-8 py-6">
+
+    <div class="absolute inset-x-0 bottom-0 z-10 px-8 py-6">
         <p class="text-xl font-heading text-text-secondary">Some text here</p>
     </div>
 </main>
 
 <!-- PROJECT SHOWCASE -->
-<ContentContainer title="project showcase">
-    <div class="flex flex-col items-center justify-center">
-        <h1>SHOWCASE</h1>
-        <p>This is a subtitle for Showcase.</p>
-    </div>
-</ContentContainer>
-
-</section>
+<SectionContainer title="project-showcase" bg='primary'>
+    <ContentContainer>
+        <div class="flex flex-col items-center justify-center p-16">
+            <h1>SHOWASE</h1>
+            <p>Projects that define who I am as a designer & devloper.</p>
+        </div>
+        <div class="grid grid-cols-2 gap-8">
+            <ProjectCard
+                title="My Project"
+                description="A short description of what this project does."
+                href="/projects/my-project"
+                tags={["Astro", "TypeScript", "Tailwind"]}
+                image=https://placehold.net/default.svg
+                imageAlt="Screenshot of my project"
+            />
+            <ProjectCard
+                title="My Project"
+                description="A short description of what this project does."
+                href="/projects/my-project"
+                tags={["Astro", "TypeScript", "Tailwind"]}
+                image=https://placehold.net/default.svg
+                imageAlt="Screenshot of my project"
+            />
+        </div>
+    </ContentContainer>
+</SectionContainer>
 
 <!-- ABOUT ME SNIPPET -->
-<ContentContainer title="about me">
-    <div class="flex flex-row">
-        <div>
-            <h1>JUSTIN LEE</h1>
+<SectionContainer title="about-me" bg='secondary'>
+    <ContentContainer>
+        <div class="grid grid-cols-2 gap-8 pt-16">
+            <div>
+                <h1>JUSTIN LEE</h1>
+                <h2>SUBTITLE</h2>
+                <p>about me here</p>
+            </div>
+            <img src="https://placehold.net/default.svg"/>
         </div>
-        <div>
-            <p>photo here</p>
-        </div>
-    </div>
-</ContentContainer>
+        
+    </ContentContainer>
+</SectionContainer>
+
