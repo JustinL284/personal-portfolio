@@ -8,54 +8,39 @@ import FaultyTerminal from '../components/FaultyTerminal'
 
 <!-- HERO HEADER -->
 <main class="bg-surface-primary relative h-screen w-full flex items-center justify-center flex-col overflow-hidden">
+
     <!-- Background layer -->
     <div class="absolute inset-0 z-0">
-
         <FaultyTerminal
-                dpr={1}
-                scale={1.5}
-                gridMul={[2, 1]}
-                digitSize={1.2}
-                timeScale={0.5}
-                pause={false}
-                scanlineIntensity={0.5}
-                glitchAmount={1}
-                flickerAmount={1}
-                noiseAmp={1}
-                chromaticAberration={0}
-                dither={0}
-                curvature={0.1}
-                tint="#A7EF9E"
-                mouseReact
-                mouseStrength={0.5}
-                pageLoadAnimation
-                brightness={0.6}
-                client:only="react"
-            />
-
-        <!--
-        <Dither
+            dpr={1}
+            scale={1.5}
+            gridMul={[2, 1]}
+            digitSize={1.2}
+            timeScale={0}
+            pause={true}
+            scanlineIntensity={0.5}
+            glitchAmount={1}
+            flickerAmount={1}
+            noiseAmp={1}
+            chromaticAberration={0}
+            dither={0}
+            curvature={0.1}
+            tint="#3B82F6"
+            mouseReact
+            mouseStrength={0.5}
+            pageLoadAnimation
+            brightness={0.6}
             client:only="react"
-            waveColor={[0.5,0.5,0.5]}
-            disableAnimation={false}
-            enableMouseInteraction
-            mouseRadius={0.3}
-            colorNum={5}
-            waveAmplitude={0.3}
-            waveFrequency={2.5}
-            waveSpeed={0.02}
-        />
-        -->
-
+            />
     </div>
 
     <!-- Foreground content -->
     <div class="relative z-10 flex flex-col items-center gap-8 text-center">
-        <h1 class="text-9xl text-text-inverted">
+        <h1 class="text-9xl text-text-primary">
             JUSTIN LEE
         </h1>
 
-        <div class="flex gap-8 list-none justify-center text-text-inverted">
+        <div class="flex gap-8 list-none justify-center text-text-primary">
             <li>Front-End UI/UX Developer</li>
             <li>Chicago, IL</li>
             <li>Purdue UX Alumni</li>
@@ -112,3 +97,9 @@ import FaultyTerminal from '../components/FaultyTerminal'
     </ContentContainer>
 </SectionContainer>
 
+<! -- TOOLS & SKILLS -->
+<SectionContainer title="tools-skills" bg="primary">
+    <ContentContainer>
+
+    </ContentContainer>
+</SectionContainer>
