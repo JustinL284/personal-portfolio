@@ -49,66 +49,129 @@
     font-display: swap;
 }
 
-/* ===== VANILLA CSS DESIGN TOKENS ===== */
+/* ===== TAILWIND CSS DESIGN PRIMITIVES ===== */
 :root {
 
-    /* Font Size Configurations */
-    --fs-h1: 4rem; /* 64px */
-    --fs-h2: 3rem; /* 48px */
-    --fs-h3: 2rem; /* 32px */
-    --fs-h4: 1.5rem; /* 24px */
-    --fs-h5: 1rem; /* 16px */
-    --fs-h6: 0.875rem; /* 14px */ 
-}  
+    /* ===== DARK MODE UI PRIMITIVES ===== */
+    color-scheme: dark;
 
-/* ===== TAILWIND CSS DESIGN TOKENS ===== */
+    /* Text */
+    --ui-text-primary: var(--color-zinc-50);
+    --ui-text-secondary: var(--color-zinc-200);
+    --ui-text-inverted: var(--color-zinc-950);
+
+    /* Surfaces */
+    --ui-surface-primary: var(--color-zinc-950);
+    --ui-surface-secondary: var(--color-zinc-800);
+    --ui-surface-inverted: var(--color-zinc-200);
+
+    /* Buttons */
+    --ui-button-primary: var(--color-zinc-50);
+    --ui-button-primary-hover: var(--color-zinc-200);
+    --ui-button-secondary: transparent;
+    --ui-button-secondary-hover: var(--color-zinc-900);
+
+    /* Borders */
+    --ui-border-primary: var(--color-zinc-800);
+
+    /* Focus */
+    --ui-focus-primary: var(--color-zinc-300);
+}
+
+[data-theme= "light"] {
+
+    /* ===== LIGHT MODE UI PRIMITIVES ===== */
+    color-theme: light;
+
+    /* Text */
+    --ui-text-primary: var(--color-zinc-950);
+    --ui-text-secondary: var(--color-zinc-700);
+    --ui-text-inverted: var(--color-zinc-50);
+
+    /* Surfaces */
+    --ui-surface-primary: var(--color-zinc-50);
+    --ui-surface-secondary: var(--color-zinc-200);
+    --ui-surface-inverted: var(--color-zinc-900);
+
+    /* Buttons */
+    --ui-button-primary: var(--color-zinc-950);
+    --ui-button-primary-hover: var(--color-zinc-800);
+    --ui-button-secondary: transparent;
+    --ui-button-secondary-hover: var(--color-zinc-200);
+
+    /* Borders */
+    --ui-border-primary: var(--color-zinc-300);
+
+    /* Focus */
+    --ui-focus-primary: var(--color-zinc-600);
+}
+
+/* ===== TYPOGRPAHY TOKENS ===== */
 @theme {
 
     /* Heading & Body Configurations */
     --font-heading: 'ClashDisplay-Variable', sans-serif;
     --font-body: 'Supreme-Variable', sans-serif;
 
-    /* Text Colors */
-    --color-text-primary: var(--color-gray-50);
-    --color-text-secondary: var(--color-gray-200);
-    --color-text-inverted: var(--color-gray-950);
+    /* Font Size Configurations */
+    --text-h1: 4rem;      /* 64px */
+    --text-h2: 3rem;      /* 48px */
+    --text-h3: 2rem;      /* 32px */
+    --text-h4: 1.5rem;    /* 24px */
+    --text-h5: 1rem;      /* 16px */
+    --text-h6: 0.875rem;  /* 14px */
 
-    /* Button Colors */
-    --color-button-primary: var(--color-gray-50);
-    --color-button-primary-hover: var(--color-gray-200);
-    --color-button-secondary: var(--transparent);
-    --color-button-secondary-hover: var(--color-gray-900);
-    --color-button-transparent: var(--transparent);
-
-    /* Surface Colors */
-    --color-surface-primary: var(--color-gray-950);
-    --color-surface-secondary: var(--color-gray-800);
-    --color-surface-inverted: var(--color-gray-200);
-
-    /* Border Colors */
-    --color-border-primary: var(--color-gray-800);
-
-    /* Temporary Focus Color */
-    --color-focus-primary: var(--color-purple-300)
+    --text-body: 1.25rem; /* 20px */ 
 }
 
-/* ===== GLOBAL STYLES ===== */
-body {
-    font-family: var(--font-body);
-    font-size: 1.25rem;
+/* ===== COLOR TOKENS ===== */
+@theme inline {
+    /* Text */
+    --color-text-primary: var(--ui-text-primary);
+    --color-text-secondary: var(--ui-text-secondary);
+    --color-text-inverted: var(--ui-text-inverted);
+
+    /* Surfaces */
+    --color-surface-primary: var(--ui-surface-primary);
+    --color-surface-secondary: var(--ui-surface-secondary);
+    --color-surface-inverted: var(--ui-surface-inverted);
+
+    /* Buttons */
+    --color-button-primary: var(--ui-button-primary);
+    --color-button-primary-hover: var(--ui-button-primary-hover);
+    --color-button-secondary: var(--ui-button-secondary);
+    --color-button-secondary-hover: var(--ui-button-secondary-hover);
+
+    /* Borders */
+    --color-border-primary: var(--ui-border-primary);
+
+    /* Focus */
+    --color-focus-primary: var(--ui-focus-primary);
 }
 
-h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-heading);
-}
-
+/* ===== ELEMENT DEFAULTS ===== */
 @layer base{
-    
-    h1 { font-size: var(--fs-h1); }
-    h2 { font-size: var(--fs-h2); }
-    h3 { font-size: var(--fs-h3); }
-    h4 { font-size: var(--fs-h4); }
-    h5 { font-size: var(--fs-h5); }
-    h6 { font-size: var(--fs-h6); }
+    html{
+        @apply bg-surface-primary;
+    }
+
+    body{
+        @apply font-body text-body text-text-primary;
+    }
+
+    h1, h2, h3, h4, h5, h6{
+        @apply font-heading text-text-primary;
+    }
+
+    h1{ @apply text-h1; }
+    h2{ @apply text-h2; }
+    h3{ @apply text-h3; }
+    h4{ @apply text-h4; }
+    h5{ @apply text-h5; }
+    h6{ @apply text-h6; }
+
+    p{ @apply text-text-secondary }
+
+    a{ @apply text-text-primary }
 
 }
